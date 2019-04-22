@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
-        String[] params = {"sudo killall python", "192.168.8.109", "1000"};
-        new MainActivity.AsyncTaskRunner().execute(params);
         final Button startBut = findViewById(R.id.startBut);
         final Button stopBut = findViewById(R.id.stopBut);
         final ImageButton powerOffBut = findViewById(R.id.powerOffBut);
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         startBut.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String[] params = {"cd enhunter && python enhunter.py", "192.168.8.109", "1000"};
+                String[] params = {"sudo killall python && cd enhunter && python enhunter.py", "192.168.8.109", "1000"};
                 new MainActivity.AsyncTaskRunner().execute(params);
                 startBut.setVisibility(View.GONE);
                 wakeLock.acquire();
